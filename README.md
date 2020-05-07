@@ -36,4 +36,22 @@ application of deep learning in 2012, the best machine learning model could only
 
 ### Supervised VS. Unsupervised
 When first given a machine learning problem, one can determine whether it is a **supervised**
-or **unsupervised** problem.
+or **unsupervised** problem. We start from a data set, which consists of a group of
+**samples**, and each sample can be represented as a tuple of **attributes**. A famous
+data set called [Iris](https://archive.ics.uci.edu/ml/datasets/iris) consists of different
+measurements for 150 samples of iris flower. Below is a sample of this data set:
+
+![iris_sample](assets/iris.png)
+
+#### Supervised Learning
+There is a **ground truth** attribute for these models. This target attribute serves as a
+teacher to guide the learning task. It provides a benchmark on the results of learning. Hence,
+the task is called supervised learning. The class attribute (virginica, versicolor, setosa,
+etc...) of the iris dataset can server as a target attribute. The data with a target attribute
+is often called **"labeled"** data. We should now be able to determine that the task of
+predicting the category of iris flower with the labeled data is a supervised learning task.
+
+#### Unsupervised Learning
+An **unsupervised** learning task does not have the ground truth. We are expected to learn the
+underlying patterns or rules from the data without having the predefined ground truth as the
+benchmark. 
