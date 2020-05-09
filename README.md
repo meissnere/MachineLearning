@@ -217,5 +217,32 @@ called the **training process**.
 Next, after the model is obtained at the end of the training process, it is then
 tested with the reserved **testing data**. This step is called the **testing process**.
 
+After the first trained model, we will likely go back to the training process to tune
+some parameters. We call this **hyper-parameter tuning**, and it is called *hyper*
+because these parameters are the outermost interface that we interact with. These
+hyper parameters then have impacts on the underlying parameters of the model. For example,
+for the decision tree model, one of its hyper-parameters would be the maximum height of
+the tree. This parameters would limit the number of branches and leaves that a decision
+tree can grow at the end, which are the underlying parameters that a decision tree
+model consists of.
+```
+As you can decipher, the steps involved in the machine learning workflow form a cycle with
+a focus on the data.
+```
 
+## Underfitting vs. Overfitting
+Two common cases for supervised learning algorithms (like classification and regression)
+is when the generated model does not fit the data well. An important measurement which
+we have mentioned before is *generalization*, which measures how well a model derived from
+the training data can predict the desired attribute of the unseen data. When we say
+that a model is underfitting or overfitting, it implies that the model does not generalize
+well to the unseen data. It is important to note that a model that fits well to the
+training data does not necessarily imply that it would generalize well to the unseen
+data. There are two reasons for this implication:
+1) The training data are just samples collected from the real world, which represents
+only a proportion of reality. The training data could simply not be representative.
+2) The data collected for the algorithm contains noise and errors. Then, the model that
+fits well with the training data would aslo capture the undesired noise and errors by
+mistake. This capturing would lead to bias and errors in the prediction for the unseen
+data.
 
