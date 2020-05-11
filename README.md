@@ -298,3 +298,61 @@ An example using these variables is as follows:
 x<sub>i</sub> = (type = "apartment", location = "LA", surface = "120m<sup>2</sup>"),
 t<sub>i</sub> = (price = "$420,000"). The task of a learner is to predict the price
 of an estate given its properties.
+
+So, given a training sample (x<sub>i</sub>, t<sub>i</sub>), the learner produces
+a prediction as F(x<sub>i</sub>). The **loss function** L(F(x<sub>i</sub>),t<sub>i</sub>)
+is the difference between the prediction F(x<sub>i</sub>) and the true value t<sub>i</sub>
+associated with the sample. The larger the difference, the bigger the loss. The common
+loss function, **square error**, is adopted when a target attribute t<sub>i</sub> is of
+numerical value. This square error is defined as: L(F(x<sub>i</sub>), t<sub>i</sub>) =
+(F(x<sub>i</sub>) - t<sub>i</sub>)<sup>2</sup>. Following the above example, if the
+model F is to produce the price of the above example x<sub>i</sub> as "$410,000", then
+the result of the loss function would be (420,000 - 410,000)<sup>2</sup> = 10<sup>8</sup>.
+
+### Main Prediction
+
+Given a loss function L and sets of training set S = {s<sub>1</sub>, s<sub>2</sub>, ...,
+s<sub>n</sub>}, the main prediction for a learner is defined as y<sub>m</sub> = 
+argmin<sub>y'</sub>E<sub>s</sub>(L(y,y<sup>'</sup>)).
+
+For each training set s<sub>i</sub>, we train a model F<sub>i</sub>with a give learner.
+Next, for a given training sample, we then produce a set of predictions *Y* = {y<sub>1</sub>,
+y<sub>2</sub>, ..., y<sub>n</sub>} with y<sub>i</sub> corresponding to the result 
+produced by the model F<sub>i</sub>. The **main prediction** y<sub>m</sub> is the
+prediction y<sup>'</sup> whose average loss with regards to all the predictions in 
+*Y* is minimum. This definition means the main prediction is that which "differs 
+least" from all the predictions in *Y* according to *L*.
+
+Imagine the loss function is square errorL(y, y<sup>'</sup>) =
+(y - y<sup>'</sup>)<sup>2</sup>. The main prediction with regards to the entire training
+set S is then the **mean of the predictions**, i.e. y<sub>m</sub> = *E*<sub>s</sub>(*Y*).
+
+```
+We can interpret the main prediction as the expected answer for a given training
+sample from a given learner (a machine learning algorithm).
+```
+
+Now let's continue with an example -- a dart-throwing game where a learner is a player.
+Whenever a dart is thrown, to corresponding activities occur:
+1) The player poses and aims, meaning the learner trains a model from a given training
+dataset.
+2) The player throws the dart, meaning the model trained by the learner produces a 
+prediction.
+
+The bullseye is the target of the prediction, and the closer the dart is to the bullseye,
+the better the learner (player) is.
+
+Before each throw, we can ask ourselves, "How many points will this player score?" The best
+guess we can take is the main prediction of this learner, which will in fact be the
+average score that the player has achieved during all past games. 
+
+```
+Intuitively, we can consider that the main prediction is the general tendency (performance)
+of a learner, i.e. expected points that a player can score in a game.
+```
+
+Let's now dive deeper into the concepts of bias and variance.
+
+### Bias
+ 
+
