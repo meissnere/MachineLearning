@@ -242,7 +242,59 @@ data. There are two reasons for this implication:
 1) The training data are just samples collected from the real world, which represents
 only a proportion of reality. The training data could simply not be representative.
 2) The data collected for the algorithm contains noise and errors. Then, the model that
-fits well with the training data would aslo capture the undesired noise and errors by
+fits well with the training data would also capture the undesired noise and errors by
 mistake. This capturing would lead to bias and errors in the prediction for the unseen
 data.
 
+In the task of classification, here is what underfitting and overfitting models look like:
+
+![fitting](assets/fitting.png)
+
+### Underfitting
+
+An underfitting model is the one that does not fit well with the training data meaning
+it is significantly deviated from the ground truth. The model might be over-simplified
+for the data. In this case, the model may not be capable to capture the hidden
+relationships in the data. A simple linear line is not enough to clearly draw the
+boundary among the sample. Now, there is significant misclassification. We should then
+choose an alternative algorithm that is able to generate a more complex model from
+the training data.
+
+### Overfitting
+
+This model will fit well with the training data to little or no error; however, it does
+not generalize well to the unseen data. A model that is able to fit every bit of data
+would fall into the traps of noises and errors. The figure above reveals less
+misclassification in the training data, yet it is more likely that this overfitted
+model would stumble on unseen data. We can try instead a simpler model for the training
+data. More commonly, one would keep the original algorithm that generated this overfitted
+model and add a **regularization** term. In a way, you are *penalizing* the model that is
+over-complicated so that the algorithm is steered to generate a less complicated model to
+fit the data.
+
+## Bias VS. Variance
+
+**Bias** and **variance** are two terms that provide another perspective to the
+phenomenons of *underfitting* and *overfitting*. 
+
+```
+Bias is a lerner's tendency to consistently learn the same wrong thing. Variance is the
+tendency to learn random things unrelated to the real signal.
+```
+
+Let us first define the notion of **main prediction** before we dive deeper into bias
+and variance. The concepts of models and loss function are covered here.
+
+### Definitions
+
+Given a training set s={(x<sub>1</sub>, t<sub>1</sub>), ... , (x<sub>n</sub>, t<sub>n</sub>)},
+a learner, which is a machine learning algorithms, produces a model *F*. Now, given
+a test example x<sub>k</sub>, this model produces a **prediction** y<sub>k</sub> = 
+F(x<sub>k</sub>). Each sample in the training set consists of two elements 
+x<sub>i</sub>, which is a vector of attributes associated with the sample. t<sub>i</sub>
+is the target attribute to predict for the sample.
+
+An example using these variables is as follows:
+x<sub>i</sub> = (type = "apartment", location = "LA", surface = "120m<sup>2</sup>"),
+t<sub>i</sub> = (price = "$420,000"). The task of a learner is to predict the price
+of an estate given its properties.
