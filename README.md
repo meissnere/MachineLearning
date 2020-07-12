@@ -315,7 +315,7 @@ Given a loss function L and sets of training set S = {s<sub>1</sub>, s<sub>2</su
 s<sub>n</sub>}, the main prediction for a learner is defined as y<sub>m</sub> = 
 argmin<sub>y'</sub>E<sub>s</sub>(L(y,y<sup>'</sup>)).
 
-For each training set s<sub>i</sub>, we train a model F<sub>i</sub>with a give learner.
+For each training set s<sub>i</sub>, we train a model F<sub>i</sub> with a given learner.
 Next, for a given training sample, we then produce a set of predictions *Y* = {y<sub>1</sub>,
 y<sub>2</sub>, ..., y<sub>n</sub>} with y<sub>i</sub> corresponding to the result 
 produced by the model F<sub>i</sub>. The **main prediction** y<sub>m</sub> is the
@@ -323,7 +323,7 @@ prediction y<sup>'</sup> whose average loss with regards to all the predictions 
 *Y* is minimum. This definition means the main prediction is that which "differs 
 least" from all the predictions in *Y* according to *L*.
 
-Imagine the loss function is square errorL(y, y<sup>'</sup>) =
+Imagine the loss function is square error L(y, y<sup>'</sup>) =
 (y - y<sup>'</sup>)<sup>2</sup>. The main prediction with regards to the entire training
 set S is then the **mean of the predictions**, i.e. y<sub>m</sub> = *E*<sub>s</sub>(*Y*).
 
@@ -333,7 +333,8 @@ sample from a given learner (a machine learning algorithm).
 ```
 
 Now let's continue with an example -- a dart-throwing game where a learner is a player.
-Whenever a dart is thrown, to corresponding activities occur:
+Whenever a dart is thrown, the corresponding activities occur:
+
 1) The player poses and aims, meaning the learner trains a model from a given training
 dataset.
 2) The player throws the dart, meaning the model trained by the learner produces a 
@@ -354,5 +355,20 @@ of a learner, i.e. expected points that a player can score in a game.
 Let's now dive deeper into the concepts of bias and variance.
 
 ### Bias
+
+The phenomenon of **underfitting** and **overfitting** are explored more in the notions of bias
+and variance. 
  
+```
+Bias is a learner’s tendency to consistently learn the same wrong thing. Variance is the tendency
+to learn random things unrelated to the real signal.
+```
+
+#### Definitions
+
+Given a training set S = {(x<sub>1</sub>,t<sub>1</sub>), ..., (x<sub>n</sub>,t<sub>n</sub>)}, a
+learner produces a model *F*. Given a test example x<sub>k</sub>, this model produces a 
+**prediction** *y*<sub>k</sub> = *F*(x<sub>k</sub>). Each sample in the training set consists
+of two elements, x<sub>i</sub>, is a vector of attributes associated with the sample, and
+t<sub>i</sub> is the target attribute to predict for the sample. 
 
