@@ -357,7 +357,7 @@ Let's now dive deeper into the concepts of bias and variance.
 ### Bias
 
 The phenomenon of **underfitting** and **overfitting** are explored more in the notions of bias
-and variance. 
+and variance.
  
 ```
 Bias is a learner’s tendency to consistently learn the same wrong thing. Variance is the tendency
@@ -372,3 +372,12 @@ learner produces a model *F*. Given a test example x<sub>k</sub>, this model pro
 of two elements, x<sub>i</sub>, is a vector of attributes associated with the sample, and
 t<sub>i</sub> is the target attribute to predict for the sample. 
 
+To illustrate these definitions above, a train sample might look like x<sub>i</sub> = (type =
+"apartment", location = "LA", surface = "120m<sup>2</sup>"), t<sub>i</sub> = (price = 
+"$420,000"). The task of a learner (again, a machine learning algorithm) is then to predict the
+price of an estate given its properties.
+
+So, given a training sample (x<sub>i</sub>, t<sub>i</sub>), the learner produces a prediction 
+*F*(x<sub>i</sub>), we then define the **loss function** *L*(*F*(x<sub>i</sub>), t<sub>i</sub>)
+as the cost that is incurred by the difference between the prediction *F*(x<sub>i</sub>) and the
+true value t<sub>i</sub> associated with the sample.
