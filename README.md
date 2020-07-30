@@ -380,4 +380,10 @@ price of an estate given its properties.
 So, given a training sample (x<sub>i</sub>, t<sub>i</sub>), the learner produces a prediction 
 *F*(x<sub>i</sub>), we then define the **loss function** *L*(*F*(x<sub>i</sub>), t<sub>i</sub>)
 as the cost that is incurred by the difference between the prediction *F*(x<sub>i</sub>) and the
-true value t<sub>i</sub> associated with the sample.
+true value t<sub>i</sub> associated with the sample. Therefore, the larger the difference, the
+bigger the loss. A simple example of how to calculate the loss function is if the target attribute
+t<sub>i</sub> is of numerical value. **Square error** would be used here, and this formula looks
+like: *L*(*F*(x<sub>i</sub>), t<sub>i</sub>) = (*F*(x<sub>i</sub>) - t<sub>i</sub>)<sup>2</sup>.
+An example of square error in practice is if a model *F* produces the price of the above example
+x<sub>i</sub> as $410,000, then the result of the loss function would be (420,000 - 410,000)
+<sup>2</sup> = 10<sup>8</sup>.
